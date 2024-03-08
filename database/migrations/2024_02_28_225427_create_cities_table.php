@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50) -> unique();
-            $table->string('city', 50) -> nullable();
-            $table->tinyInteger('titles') -> default(0);
-            $table->foreignId('division_id');
-            $table->foreignId('conference_id');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('cities');
     }
 };

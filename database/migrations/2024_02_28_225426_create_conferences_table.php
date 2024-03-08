@@ -8,22 +8,26 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('conferences', function (Blueprint $table) {
             $table->id();
-            $table->string('logo') -> nullable();
-            $table->string('name_conference', 50) -> unique();
-            $table->tinyInteger('SB_conference') -> default(0);
+            $table->string('conference_name', 50) -> unique();
+            $table->string('conference_logo');
+            $table->tinyInteger('sb_titles_conf') -> default(0);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     * 
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('conferences');
     }

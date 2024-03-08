@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('divisions', function (Blueprint $table) {
             $table->id();
-            $table->string('logo') -> nullable();
-            $table->string('name_division', 50) -> unique();
-            $table->tinyInteger('SB_division') -> default(0);
+            $table->string('division_name', 50) -> unique();
+            $table->tinyInteger('sb_titles_div') -> default(0);
             $table->timestamps();
         });
     }
